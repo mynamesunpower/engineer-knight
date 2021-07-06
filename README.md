@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# 기사기사
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 기사기사: 기사(騎士) for 기사(技士)
 
-## Available Scripts
+### The knight for an Engineer
 
-In the project directory, you can run:
+### 배경
 
-### `yarn start`
+정보처리기사 공부하면서 불편한 점을 좀 정리해봤는데, 문득 이걸 해결해보고자하는 생각이 들었음. 실기가 열흘 남짓 남았는데 역시 공부하기 싫으면 다른 걸 해보고싶나봉가.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 기술 스택
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+시도해보지 않았던 것들로 시도해보고 싶어요
 
-### `yarn test`
+- React
+- TypeScript
+- GraphQL
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 목적
 
-### `yarn build`
+1. 무작위 문제에 대한 접근성을 향상시키고 싶었음.
+2. 정처기는 2020년에 크게 개정되어 그 이전의 문제는 현재 시험에 완벽히 대응하지 못함.
+3. 그러나 이전 문제에서도 출제되었던 부분이 있기 때문에 울며 겨자먹기로 공부해야 함.
+4. 실기 문제에 대한 즉각 채점 시스템이 필요. 현재는 계속 종이나 메모장에 끄적여서, 답지를 확인하고, 반복해야 함.
+5. 오답노트 필요
+6. 한 번 맞춘 문제라도 시간이 꽤 지나고 다시 풀었을 때 은근 틀린다. 맞춘 문제라도 리마인더 필요. 정답률을 기반으로 한다거나.
+7. 개념 공부는.. 사실 만들려면 만들겠지만 귀찮고, 책 사서(두 브랜드의 책을 모두 봄) 감사히 잘 공부했기에 책을 사시기를 권해드린다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 구현해야 할 사항
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. 문제 데이터는 일단 모으면 될 것 같음.
+2. 이후 문제들을 정제하는 과정이 필요.
+3. 단답형 문제에 대한 답안을 어떤 방법으로 체크할지 생각해야 함.
+4. 크게 카테고리형으로 문제 데이터를 처리해 두면, 추후 시험 범위가 개정되어도 카테고리에 맞는 문제만 새로 뽑아오면 되지 않을까 생각.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 나머지 정리
