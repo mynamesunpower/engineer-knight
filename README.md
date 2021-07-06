@@ -12,9 +12,13 @@
 
 시도해보지 않았던 것들로 시도해보고 싶어요
 
+Front-end
 - React
 - TypeScript
 - GraphQL
+
+Back-end
+- Node.js
 
 ### 목적
 
