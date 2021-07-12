@@ -4,9 +4,7 @@ import Paper from '../UI/organisms/Paper';
 const Main = () => {
   return (
     <main>
-      <div>
-        <Paper />
-      </div>
+      <div></div>
     </main>
   );
 };

@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
+import palette from './palette';
 
 const GlobalStyles = createGlobalStyle`
   ${normalize}
@@ -13,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body {
+    background-color: ${palette.gray[5]};
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
