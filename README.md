@@ -56,3 +56,10 @@ git push origin mater
 2021/7/7
 프로토타이핑을 위해 Adobe XD를 사용 (개인 라이센스)
 퇴근 후 활용법을 간략히 익히기
+
+2021/7/10
+정보처리기사 합격 예상(85점 정도)
+
+2021/7/12
+styled-component with TypeScript
+redux, react-router SETTINGS
