@@ -4,9 +4,9 @@ import palette from '../../../assets/styles/palette';
 
 const StyledButton = styled.button<{ children: string }>`
   border: none;
-  border-radius: 4px;
+  border-radius: 1px;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 300;
   padding: 0.25rem 1rem;
   color: white;
   outline: none;

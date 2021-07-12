@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const div = styled.div``;
+const Div = styled.div`
+  display: block;
+`;
 
 interface ITextDiv {
   children: string;
 }
 
 const TextDiv = ({ children }: ITextDiv) => {
-  return <div>{children}</div>;
+  return <Div>{children}</Div>;
 };
 
 export default TextDiv;

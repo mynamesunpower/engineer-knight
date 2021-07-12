@@ -19,7 +19,7 @@ function App() {
         <Route exact path='/' component={Main} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
-        <Route path='/quiz/:number' component={Quiz} />
+        <Route path={['/quiz', '/quiz/:number']} component={Quiz} />
       </Switch>
     </ThemeProvider>
   );
