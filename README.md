@@ -8,13 +8,22 @@
 
 정보처리기사 공부하면서 불편한 점을 좀 정리해봤는데, 문득 이걸 해결해보고자하는 생각이 들었음. 실기가 열흘 남짓 남았는데 역시 공부하기 싫으면 다른 걸 해보고싶나봉가.
 
-### 기술 스택
+### 기술 스택 (예상)
 
-시도해보지 않았던 것들로 시도해보고 싶어요
-
+#### Front-end
 - React
 - TypeScript
-- GraphQL
+- GraphQL (취소선)
+
+#### Back-end
+- AWS EC2
+- Travis CI
+- Spring Boot
+- JPA
+- Spring Security
+
+#### 공통
+- 테스트 코드 작성
 
 ### 목적
 
@@ -32,6 +41,9 @@
 2. 이후 문제들을 정제하는 과정이 필요.
 3. 단답형 문제에 대한 답안을 어떤 방법으로 체크할지 생각해야 함.
 4. 크게 카테고리형으로 문제 데이터를 처리해 두면, 추후 시험 범위가 개정되어도 카테고리에 맞는 문제만 새로 뽑아오면 되지 않을까 생각.
+
+### 지극히 개인적 요구사항
+- Java 8
 
 ### 진행사항
 ~2021/7/6
@@ -63,3 +75,10 @@ git push origin mater
 2021/7/12
 styled-component with TypeScript
 redux, react-router SETTINGS
+
+2021/8/13
+AWS springboot 무중단 배포를 익혔다.
+이것을 back-end 서버 기반으로 삼아야겠다.
+
+TODO 
+React App CI
