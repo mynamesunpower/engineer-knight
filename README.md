@@ -14,6 +14,7 @@
 - React
 - TypeScript
 - GraphQL (취소선)
+- 1차적으로 State Hook으로 상태 관리하다가, Redux로 이관하는 그림을 그려보자.
 
 #### Back-end
 - AWS EC2
