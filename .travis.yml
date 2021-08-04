@@ -11,7 +11,7 @@ services:
 # script env
 before_install:
   - echo "start Creating an image with Dockerfile"
-  - docker build -t mynamesunpower/engineer-knight -f Dockerfile.dev
+  - docker build -t mynamesunpower/engineer-knight -f Dockerfile.dev .
 
 # run script
 script:
