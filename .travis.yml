@@ -1,0 +1,22 @@
+# Manager
+sudo: required
+
+# platform
+language: generic
+
+# Docker Env
+services:
+  - docker
+
+# script env
+before_install:
+  - echo "start Creating an image with Dockerfile"
+  - docker build -t mynamesunpower/engineer-knight -f Dockerfile.dev
+
+# run script
+script:
+  - docker run -e CI=true mynamesunpower/engineer-knight npm run test -- --coverage
+
+# after test finished
+after_success:
+  - echo "Test Success"
