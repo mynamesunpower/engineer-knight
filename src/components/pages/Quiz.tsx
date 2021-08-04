@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Paper from '../UI/organisms/Paper';
 import styled from 'styled-components';
 import palette from '../../assets/styles/palette';
+import axios from 'axios';
 
 const StyledQuiz = styled.div`
   .quiz {
@@ -18,11 +19,20 @@ const StyledQuiz = styled.div`
   }
 `;
 
-const Quiz = () => {
+const fetchQuiz = () => {
+  const res = axios
+  .get('/hello')
+    .then(res => {
+      console.log(res)
+    })
+}
+
+const Quiz: React.FC = () => {
   return (
     <StyledQuiz>
       <div className='quiz'>
         <Paper />
+        <button onClick={fetchQuiz}>quiz</button>
       </div>
     </StyledQuiz>
   );
