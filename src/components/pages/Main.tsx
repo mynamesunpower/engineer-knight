@@ -1,8 +1,14 @@
-import React, { BaseSyntheticEvent, useEffect, useState } from 'react';
+import React, {
+  BaseSyntheticEvent,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import styled from 'styled-components';
 import hello from '../../lib/hello';
 import { Link } from 'react-router-dom';
 import { Button, makeStyles, TextField } from '@material-ui/core';
+import insertQuiz from '../../lib/insertQuiz';
 
 const StyledMain = styled.main`
   padding: 0.5rem;
@@ -55,7 +61,11 @@ const Main: React.FC = () => {
     });
   }, []);
 
-  const insertQuiz = '';
+  const onInsert = useCallback((quiz: Quiz) => {
+    insertQuiz(quiz).then((response) => {
+      console.log(response);
+    });
+  }, []);
 
   return (
     <StyledMain>
@@ -75,7 +85,7 @@ const Main: React.FC = () => {
             <TextField
               label='문제구분(단답(1)/약술(2))'
               style={{ margin: 8 }}
-              placeholder='숫자 입력'
+              placeholder='숫자 입력 N·N'
               margin='normal'
               InputLabelProps={{ shrink: true }}
               name='quizType'
@@ -87,7 +97,7 @@ const Main: React.FC = () => {
             <TextField
               label='카테고리1(대분류)'
               style={{ margin: 8 }}
-              placeholder=''
+              placeholder='N·N'
               margin='normal'
               InputLabelProps={{ shrink: true }}
               name='category1'
@@ -111,7 +121,7 @@ const Main: React.FC = () => {
             <TextField
               label='문제'
               style={{ margin: 8 }}
-              placeholder=''
+              placeholder='N·N'
               margin='normal'
               InputLabelProps={{ shrink: true }}
               multiline
@@ -124,7 +134,7 @@ const Main: React.FC = () => {
             <TextField
               label='정답'
               style={{ margin: 8 }}
-              placeholder='(구분자 쉼표로 입력)'
+              placeholder='(구분자 쉼표로 입력) N·N'
               margin='normal'
               InputLabelProps={{ shrink: true }}
               name='answer'
@@ -136,7 +146,7 @@ const Main: React.FC = () => {
             <TextField
               label='기출여부'
               style={{ margin: 8 }}
-              placeholder='Y / N'
+              placeholder='Y / N (N·N)'
               margin='normal'
               InputLabelProps={{ shrink: true }}
               name='previousYn'
@@ -170,7 +180,7 @@ const Main: React.FC = () => {
               onChange={onChange}
             />
           </div>
-          <Button>등록하기</Button>
+          <Button onClick={() => onInsert(quiz)}>등록하기</Button>
         </form>
       )}
     </StyledMain>
