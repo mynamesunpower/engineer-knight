@@ -82,4 +82,9 @@ AWS springboot 무중단 배포를 익혔다.
 이것을 back-end 서버 기반으로 삼아야겠다.
 
 TODO 
-React App CI
+React App CI가 생각보다 잘 안되고 있어, 우선 수동 배포로 방향을 잡아야겠음.
+
+2021/08/23
+로컬로 개발 중
+꾸미기는 Material-ui를 활용.
+문제 INSERT 까지 개발.
