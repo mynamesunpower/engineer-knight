@@ -61,6 +61,9 @@ const Main: React.FC = () => {
     });
   }, []);
 
+  /**
+   * 문제 등록
+   */
   const onInsert = useCallback((quiz: Quiz) => {
     insertQuiz(quiz).then((response) => {
       console.log(response);
