@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { BaseSyntheticEvent, useState } from 'react';
 import TextDiv from '../atoms/TextDiv';
 import styled from 'styled-components';
 import Quiz from '../../pages/Quiz';
 import palette from '../../../assets/styles/palette';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  makeStyles,
+  TextField,
+  Tooltip,
+  Typography,
+} from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minWidth: 275,
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: '25ch',
+  },
+}));
 
 const QuizPaper = styled.div`
   font-size: 21px;
@@ -62,23 +89,78 @@ const QuizPaper = styled.div`
 
 type Props = {
   quiz: QuizType;
+  fetchQuiz: any;
 };
 
-const Paper = ({ quiz }: Props) => {
+const Paper = ({ quiz, fetchQuiz }: Props) => {
+  const classes = useStyles();
+
+  const correctRate = isNaN(quiz.answeredNumber / quiz.solvedNumber)
+    ? 0
+    : quiz.answeredNumber / quiz.solvedNumber;
+
+  const [answer, setAnswer] = useState<string>('');
+
+  const onChange = (e: BaseSyntheticEvent) => {
+    setAnswer(e.target.value);
+  };
+
+  const checkAnswer = () => {
+    const answers = quiz.answer.split(',');
+    const inputAnswer = answer.replace(' ', '').trim().toLowerCase();
+    console.log(inputAnswer);
+    if (answers.includes(inputAnswer)) {
+      alert('Answered!');
+      setAnswer('');
+      // 정답 분기
+      fetchQuiz();
+    } else {
+      alert('failed!');
+      setAnswer('');
+      // 실패 분기
+    }
+  };
+
+  if (quiz.id === 0) {
+    return (
+      <QuizPaper>
+        <Button onClick={fetchQuiz}>{`Let's go! ------->`}</Button>
+      </QuizPaper>
+    );
+  }
+
   return (
-    <QuizPaper>
-      <div className='quiz-type'>단답형</div>
-      <div className='correct-rate'>74.4</div>
-      <div className='quiz-box'>
-        <span className='quiz-sequence'>{quiz.id}</span>
-        <span className='quiz-content'>{quiz.quiz}</span>
-      </div>
-      <div className='quiz-input'>
-        <form>
-          <input placeholder='정답 입력' type='text' className='answerInput' />
-        </form>
-      </div>
-    </QuizPaper>
+    <Card className={classes.root} variant='outlined'>
+      <CardContent>
+        <Typography
+          className={classes.title}
+          color='textSecondary'
+          gutterBottom
+        >
+          {`단답형 ${quiz.id}.`}
+        </Typography>
+        <Typography variant='h5' component='h2'>
+          {`category: ${quiz.category1} ${quiz.category2 ?? ''}`}
+        </Typography>
+        <Typography className={classes.pos} color='textSecondary'>
+          {`correct rate: ${correctRate}% `}
+        </Typography>
+        <Typography variant='body2' component='p'>
+          {quiz.quiz}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <TextField
+          margin='normal'
+          value={answer}
+          onChange={onChange}
+          required
+        />
+        <Button size='small' onClick={checkAnswer}>
+          정답 체크
+        </Button>
+      </CardActions>
+    </Card>
   );
 };
 

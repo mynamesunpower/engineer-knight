@@ -46,9 +46,7 @@ const Quiz: React.FC = () => {
       .get('/api/v1/quiz/length')
       .then((response) => {
         setQuizLength(response.data);
-        setQuizNumbers([...Array(quizLength)].map((v, i) => i + 1));
-
-        fetchQuiz();
+        setQuizNumbers([...Array(response.data)].map((v, i) => i + 1));
       })
       .catch((e: AxiosError) => console.warn);
   }, []);
@@ -67,14 +65,14 @@ const Quiz: React.FC = () => {
       });
       setQuizNumbers(quizNumbers);
     } else {
-      console.warn('splice finished.');
+      console.warn('splice finished or empty array');
     }
   }, [quizNumbers]);
 
   return (
     <StyledQuiz>
       <div className='quiz'>
-        <Paper quiz={quiz} />
+        <Paper quiz={quiz} fetchQuiz={fetchQuiz} />
         <button onClick={fetchQuiz}>quiz</button>
       </div>
     </StyledQuiz>
