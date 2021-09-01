@@ -110,18 +110,17 @@ const Paper = ({ quiz, quizLength, fetchQuiz }: Props) => {
     }
   };
 
-  if (quizLength === 0) {
-    return (
-      <Card className={classes.root} variant='outlined'>
-        문제가 더 없어요 ㅃㅃ2
-      </Card>
-    );
-  }
-
   if (quiz.id === 0) {
     return (
       <Card className={classes.root} variant='outlined'>
         <Button onClick={fetchQuiz}>{`Let's go! ------->`}</Button>
+      </Card>
+    );
+  }
+  if (quizLength === 0) {
+    return (
+      <Card className={classes.root} variant='outlined'>
+        문제가 더 없어요 ㅃㅃ2
       </Card>
     );
   }
