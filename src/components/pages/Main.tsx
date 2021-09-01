@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import hello from '../../lib/hello';
 import { Link } from 'react-router-dom';
 import { Button, makeStyles, TextField } from '@material-ui/core';
-import insertQuiz from '../../lib/insertQuiz';
+import insertQuiz from '../../lib/quiz/insertQuiz';
 
 const StyledMain = styled.main`
   padding: 0.5rem;
@@ -34,7 +34,8 @@ const Main: React.FC = () => {
 
   const [helloMsg, setHelloMsg] = useState<string>('');
   const [isInsertFormVisible, setInsertFormVisible] = useState<boolean>(false);
-  const [quiz, setQuiz] = useState<Quiz>({
+  const [quiz, setQuiz] = useState<QuizType>({
+    id: 0,
     quizType: '',
     category1: '',
     category2: '',
@@ -64,7 +65,7 @@ const Main: React.FC = () => {
   /**
    * 문제 등록
    */
-  const onInsert = useCallback((quiz: Quiz) => {
+  const onInsert = useCallback((quiz: QuizType) => {
     insertQuiz(quiz).then((response) => {
       console.log(response);
     });

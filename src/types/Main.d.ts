@@ -1,4 +1,5 @@
-type Quiz = {
+type QuizType = {
+  id: number;
   quizType: string;
   category1: string;
   category2: string;

@@ -12,3 +12,7 @@ test('renders learn react link', () => {
   const linkElement = screen.getByText(/기사기사입니다/);
   expect(linkElement).toBeInTheDocument();
 });
+
+test('1 is 1', () => {
+  expect(1).toBe(1);
+});

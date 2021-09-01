@@ -1,8 +1,9 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Paper from '../UI/organisms/Paper';
 import styled from 'styled-components';
 import palette from '../../assets/styles/palette';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+import getQuiz from '../../lib/quiz/getQuiz';
 
 const StyledQuiz = styled.div`
   .quiz {
@@ -19,19 +20,61 @@ const StyledQuiz = styled.div`
   }
 `;
 
-const fetchQuiz = () => {
-  const res = axios
-  .get('/hello')
-    .then(res => {
-      console.log(res)
-    })
-}
-
 const Quiz: React.FC = () => {
+  /*
+
+   */
+  const [quiz, setQuiz] = useState<QuizType>({
+    id: 0,
+    quizType: '',
+    category1: '',
+    category2: '',
+    quiz: '',
+    answer: '',
+    previousYn: '',
+    previousYear: '',
+    previousNumber: '',
+    solvedNumber: 0,
+    answeredNumber: 0,
+    description: '',
+  });
+  const [quizLength, setQuizLength] = useState<number>(0);
+  const [quizNumbers, setQuizNumbers] = useState<number[]>([]);
+
+  useEffect(() => {
+    axios
+      .get('/api/v1/quiz/length')
+      .then((response) => {
+        setQuizLength(response.data);
+        setQuizNumbers([...Array(quizLength)].map((v, i) => i + 1));
+
+        fetchQuiz();
+      })
+      .catch((e: AxiosError) => console.warn);
+  }, []);
+
+  const fetchQuiz = useCallback(() => {
+    const no = quizNumbers.splice(
+      Math.floor(Math.random() * quizNumbers.length),
+      1,
+    )[0];
+
+    if (no) {
+      console.log(`fetchQuiz No. ${no}`);
+      getQuiz(no).then((response) => {
+        const quiz = response.data;
+        setQuiz(quiz);
+      });
+      setQuizNumbers(quizNumbers);
+    } else {
+      console.warn('splice finished.');
+    }
+  }, [quizNumbers]);
+
   return (
     <StyledQuiz>
       <div className='quiz'>
-        <Paper />
+        <Paper quiz={quiz} />
         <button onClick={fetchQuiz}>quiz</button>
       </div>
     </StyledQuiz>
