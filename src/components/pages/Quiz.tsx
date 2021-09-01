@@ -3,7 +3,7 @@ import Paper from '../UI/organisms/Paper';
 import styled from 'styled-components';
 import palette from '../../assets/styles/palette';
 import axios, { AxiosError } from 'axios';
-import getQuiz from '../../lib/quiz/getQuiz';
+import { getQuiz } from '../../lib/quiz/QuizApi';
 
 const StyledQuiz = styled.div`
   .quiz {
@@ -72,8 +72,7 @@ const Quiz: React.FC = () => {
   return (
     <StyledQuiz>
       <div className='quiz'>
-        <Paper quiz={quiz} fetchQuiz={fetchQuiz} />
-        <button onClick={fetchQuiz}>quiz</button>
+        <Paper quiz={quiz} quizLength={quizLength} fetchQuiz={fetchQuiz} />
       </div>
     </StyledQuiz>
   );

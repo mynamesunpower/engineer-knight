@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import hello from '../../lib/hello';
 import { Link } from 'react-router-dom';
 import { Button, makeStyles, TextField } from '@material-ui/core';
-import insertQuiz from '../../lib/quiz/insertQuiz';
+import { insertQuiz } from '../../lib/quiz/QuizApi';
 
 const StyledMain = styled.main`
   padding: 0.5rem;
