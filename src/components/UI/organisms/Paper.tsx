@@ -14,6 +14,19 @@ import {
   Typography,
 } from '@material-ui/core';
 
+const category1Map = new Map([
+  ['00', 'no category'],
+  ['01', 'category 1'],
+  ['02', 'category 2'],
+  ['03', 'category 3'],
+  ['04', 'category 4'],
+  ['05', 'category 5'],
+  ['06', 'category 6'],
+  ['07', 'category 7'],
+  ['08', 'category 8'],
+  ['09', 'category 9'],
+]);
+
 const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 275,
@@ -140,7 +153,7 @@ const Paper = ({ quiz, fetchQuiz }: Props) => {
           {`단답형 ${quiz.id}.`}
         </Typography>
         <Typography variant='h5' component='h2'>
-          {`category: ${quiz.category1} ${quiz.category2 ?? ''}`}
+          {`${category1Map.get(quiz.category1)} ${quiz.category2 ?? ''}`}
         </Typography>
         <Typography className={classes.pos} color='textSecondary'>
           {`correct rate: ${correctRate}% `}
