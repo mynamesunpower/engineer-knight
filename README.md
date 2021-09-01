@@ -1,8 +1,5 @@
 # 기사기사
 
-## 기사기사: 기사(騎士) for 기사(技士)
-
-### The knight for an Engineer
 
 ### 배경
 
