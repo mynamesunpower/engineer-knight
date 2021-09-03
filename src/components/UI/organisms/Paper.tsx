@@ -187,7 +187,7 @@ const Paper: React.FC<Props> = ({ quiz, quizLength, fetchQuiz }) => {
           {/* SQL, 프로그래밍 문제의 경우 */}
           {['08', '10'].includes(quiz.category1) ? (
             <>
-              <div>{quizContext}</div>
+              {quizContext}
               <CopyBlock
                 text={codes}
                 language={language}

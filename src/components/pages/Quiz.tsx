@@ -2,8 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Paper from '../UI/organisms/Paper';
 import styled from 'styled-components';
 import palette from '../../assets/styles/palette';
-import axios, { AxiosError } from 'axios';
 import { getQuiz } from '../../lib/quiz/QuizApi';
+import client from '../../lib/common/client';
+import { AxiosError } from 'axios';
 
 const StyledQuiz = styled.div`
   .quiz {
@@ -42,7 +43,7 @@ const Quiz: React.FC = () => {
   const [quizNumbers, setQuizNumbers] = useState<number[]>([]);
 
   useEffect(() => {
-    axios
+    client
       .get('/api/v1/quiz/length')
       .then((response) => {
         setQuizLength(response.data);
